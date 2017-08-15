@@ -1,0 +1,36 @@
+  <script src="https://s3-us-west-2.amazonaws.com/reallysimpleweather/reallysimpleweather-1.0.0.min.js"></script>
+
+  <div id="weather"></div>
+
+  <script>
+    reallySimpleWeather.weather({
+     location: 'Tokyo, JP',
+     woeid: '',
+     unit: 'c',
+     success: function(weather) {
+      document.getElementById('weather').innerHTML = '<p><i class="icon-'+weather.code+'"></i>'+weather.temp+'℃ '+weather.currently+' '+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</p>';
+     },
+     error: function(error) {
+      document.getElementById('weather').innerHTML = '<p>'+error+'</p>';
+     }
+    });
+  </script>
+
+  <link rel="stylesheet" href="lib/weather/weather.css">
+  <style>
+   /*@import url(http://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.2/css/weather-icons.css);*/
+   .intro {
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 20px;
+   }
+   ons-card {
+    cursor: pointer;
+    color: #333;
+   }
+   .card__title,
+   .card--material__title {
+    font-size: 20px;
+   }
+  </style>
+
